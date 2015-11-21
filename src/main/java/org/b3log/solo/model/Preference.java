@@ -15,19 +15,17 @@
  */
 package org.b3log.solo.model;
 
-
 import org.b3log.latke.Keys;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 /**
  * This class defines all comment model relevant keys.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.2.0.10, Nov 8, 2015
+ * @version 1.3.0.10, Nov 20, 2015
  * @since 0.3.1
  */
 public final class Preference {
@@ -38,184 +36,10 @@ public final class Preference {
     public static final String PREFERENCE = "preference";
 
     /**
-     * Blog title.
-     */
-    public static final String BLOG_TITLE = "blogTitle";
-
-    /**
-     * Blog subtitle.
-     */
-    public static final String BLOG_SUBTITLE = "blogSubtitle";
-
-    /**
-     * Relevant articles display count.
-     */
-    public static final String RELEVANT_ARTICLES_DISPLAY_CNT = "relevantArticlesDisplayCount";
-
-    /**
-     * Random articles display count.
-     */
-    public static final String RANDOM_ARTICLES_DISPLAY_CNT = "randomArticlesDisplayCount";
-
-    /**
-     * External relevant articles display count.
-     */
-    public static final String EXTERNAL_RELEVANT_ARTICLES_DISPLAY_CNT = "externalRelevantArticlesDisplayCount";
-
-    /**
-     * Recent article display count.
-     */
-    public static final String RECENT_ARTICLE_DISPLAY_CNT = "recentArticleDisplayCount";
-
-    /**
-     * Recent comment display count.
-     */
-    public static final String RECENT_COMMENT_DISPLAY_CNT = "recentCommentDisplayCount";
-
-    /**
-     * Most used tag display count.
-     */
-    public static final String MOST_USED_TAG_DISPLAY_CNT = "mostUsedTagDisplayCount";
-
-    /**
-     * Most comment article display count.
-     */
-    public static final String MOST_COMMENT_ARTICLE_DISPLAY_CNT = "mostCommentArticleDisplayCount";
-
-    /**
-     * Most view article display count.
-     */
-    public static final String MOST_VIEW_ARTICLE_DISPLAY_CNT = "mostViewArticleDisplayCount";
-
-    /**
-     * Article list display count.
-     */
-    public static final String ARTICLE_LIST_DISPLAY_COUNT = "articleListDisplayCount";
-
-    /**
-     * Article list pagination window size.
-     */
-    public static final String ARTICLE_LIST_PAGINATION_WINDOW_SIZE = "articleListPaginationWindowSize";
-
-    /**
-     * Administrator's email.
-     */
-    public static final String ADMIN_EMAIL = "adminEmail";
-
-    /**
-     * Locale string.
-     */
-    public static final String LOCALE_STRING = "localeString";
-
-    /**
-     * Time zone id.
-     */
-    public static final String TIME_ZONE_ID = "timeZoneId";
-
-    /**
-     * Notice board.
-     */
-    public static final String NOTICE_BOARD = "noticeBoard";
-
-    /**
-     * HTML head.
-     */
-    public static final String HTML_HEAD = "htmlHead";
-
-    /**
-     * Key of meta keywords.
-     */
-    public static final String META_KEYWORDS = "metaKeywords";
-
-    /**
-     * Key of meta description.
-     */
-    public static final String META_DESCRIPTION = "metaDescription";
-
-    /**
-     * Key of article update hint flag.
-     */
-    public static final String ENABLE_ARTICLE_UPDATE_HINT = "enableArticleUpdateHint";
-
-    /**
-     * Key of signs.
-     */
-    public static final String SIGNS = "signs";
-
-    /**
-     * Key of key of Solo.
-     */
-    public static final String KEY_OF_SOLO = "keyOfSolo";
-
-    /**
-     * Key of allow visit draft via permalink.
-     */
-    public static final String ALLOW_VISIT_DRAFT_VIA_PERMALINK = "allowVisitDraftViaPermalink";
-
-    /**
-     * Key of version.
-     */
-    public static final String VERSION = "version";
-
-    /**
-     * Key of article list display style.
-     * 
-     * <p>
-     * Optional values:
-     *   <ul>
-     *     <li>"titleOnly"</li>
-     *     <li>"titleAndContent"</li>
-     *     <li>"titleAndAbstract"</li>
-     *   </ul>
-     * </p>
-     */
-    public static final String ARTICLE_LIST_STYLE = "articleListStyle";
-
-    /**
-     * Key of reply notification template.
-     */
-    public static final String REPLY_NOTIFICATION_TEMPLATE = "replyNotificationTemplate";
-
-    /**
-     * Key of article/page comment-able.
-     */
-    public static final String COMMENTABLE = "commentable";
-
-    /**
-     * Key of feed (Atom/RSS) output mode.
-     * 
-     * <p>
-     * Optional values:
-     *   <ul>
-     *     <li>"abstract"</li>
-     *     <li>"fullContent"</li>
-     *   </ul>
-     * </p>
-     */
-    public static final String FEED_OUTPUT_MODE = "feedOutputMode";
-
-    /**
-     * Key of feed (Atom/RSS) output entry count.
-     */
-    public static final String FEED_OUTPUT_CNT = "feedOutputCnt";
-
-    /**
-     * Key of editor type.
-     * 
-     * Optional values: 
-     * <p>
-     *   <ul>
-     *     <li>"tinyMCE"</li>
-     *     <li>"CodeMirror-Markdown"</li>
-     *   </ul>
-     * </p>
-     */
-    public static final String EDITOR_TYPE = "editorType";
-
-    /**
      * Private default constructor.
      */
-    private Preference() {}
+    private Preference() {
+    }
 
     /**
      * Default preference.
@@ -283,8 +107,8 @@ public final class Preference {
 
         /**
          * Default time zone.
-         * 
-         * @see java.util.TimeZone#getAvailableIDs() 
+         *
+         * @see java.util.TimeZone#getAvailableIDs()
          */
         public static final String DEFAULT_TIME_ZONE = "Asia/Shanghai";
 
@@ -312,7 +136,7 @@ public final class Preference {
          * Default HTML head to append.
          */
         public static final String DEFAULT_HTML_HEAD = "";
-        
+
         /**
          * Default footer content.
          */
@@ -347,6 +171,11 @@ public final class Preference {
          * Default allow visit draft via permalink.
          */
         public static final String DEFAULT_ALLOW_VISIT_DRAFT_VIA_PERMALINK = "false";
+
+        /**
+         * Default allow register.
+         */
+        public static final String DEFAULT_ALLOW_REGISTER = "false";
 
         /**
          * Default allow comment article/page.
@@ -411,8 +240,8 @@ public final class Preference {
 
                 replyNotificationTemplate.put("subject", "${blogTitle}: New reply of your comment");
                 replyNotificationTemplate.put("body",
-                    "Your comment on post[<a href='${postLink}'>" + "${postTitle}</a>] received an reply: <p>${replier}"
-                    + ": <span><a href='${replyURL}'>${replyContent}</a></span></p>");
+                        "Your comment on post[<a href='${postLink}'>" + "${postTitle}</a>] received an reply: <p>${replier}"
+                        + ": <span><a href='${replyURL}'>${replyContent}</a></span></p>");
                 DEFAULT_REPLY_NOTIFICATION_TEMPLATE = replyNotificationTemplate.toString();
             } catch (final Exception e) {
                 LOGGER.log(Level.ERROR, "Creates sign error!", e);
@@ -423,6 +252,7 @@ public final class Preference {
         /**
          * Private default constructor.
          */
-        private Default() {}
+        private Default() {
+        }
     }
 }
