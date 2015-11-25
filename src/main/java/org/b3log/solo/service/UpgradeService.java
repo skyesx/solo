@@ -44,7 +44,7 @@ import org.json.JSONObject;
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
  * @author <a href="mailto:dongxu.wang@acm.org">Dongxu Wang</a>
- * @version 1.1.0.2, Nov 20, 2015
+ * @version 1.1.0.3, Nov 23, 2015
  * @since 1.2.0
  */
 @Service
@@ -121,7 +121,7 @@ public class UpgradeService {
      */
     public void upgrade() {
         try {
-            final JSONObject preference = preferenceRepository.get(Preference.PREFERENCE);
+            final JSONObject preference = preferenceRepository.get(Option.CATEGORY_C_PREFERENCE);
             if (null == preference) {
                 return;
             }
@@ -180,7 +180,7 @@ public class UpgradeService {
             upgradeUsers();
 
             // Upgrades preference model
-            final JSONObject preference = preferenceRepository.get(Preference.PREFERENCE);
+            final JSONObject preference = preferenceRepository.get(Option.CATEGORY_C_PREFERENCE);
 
             final String adminEmail = preference.optString(Option.ID_C_ADMIN_EMAIL);
             final JSONObject adminEmailOpt = new JSONObject();
@@ -402,7 +402,7 @@ public class UpgradeService {
             final JSONObject footerContentOpt = new JSONObject();
             footerContentOpt.put(Keys.OBJECT_ID, Option.ID_C_FOOTER_CONTENT);
             footerContentOpt.put(Option.OPTION_CATEGORY, Option.CATEGORY_C_PREFERENCE);
-            footerContentOpt.put(Option.OPTION_VALUE, Preference.Default.DEFAULT_FOOTER_CONTENT);
+            footerContentOpt.put(Option.OPTION_VALUE, Option.DefaultPreference.DEFAULT_FOOTER_CONTENT);
             optionRepository.add(footerContentOpt);
 
             final JSONObject replyNotificationTemplate = preferenceRepository.get("replyNotificationTemplate");
@@ -430,11 +430,11 @@ public class UpgradeService {
             final JSONObject allowRegisterOpt = new JSONObject();
             allowRegisterOpt.put(Keys.OBJECT_ID, Option.ID_C_ALLOW_REGISTER);
             allowRegisterOpt.put(Option.OPTION_CATEGORY, Option.CATEGORY_C_PREFERENCE);
-            allowRegisterOpt.put(Option.OPTION_VALUE, Preference.Default.DEFAULT_ALLOW_REGISTER);
+            allowRegisterOpt.put(Option.OPTION_VALUE, Option.DefaultPreference.DEFAULT_ALLOW_REGISTER);
             optionRepository.add(allowRegisterOpt);
 
             preference.put(Option.ID_C_VERSION, TO_VER);
-            preferenceRepository.update(Preference.PREFERENCE, preference);
+            preferenceRepository.update(Option.CATEGORY_C_PREFERENCE, preference);
 
             transaction.commit();
 
